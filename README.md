@@ -64,7 +64,7 @@ By the end of the exercise we should have completely decomposed into services
   - modularized
   - scalable
 
-### Available Resources
+### Workshop Resources
 #### System Requirements
 - [Python 2.7][17]
 - [MongoDB 3.0][16]
@@ -73,8 +73,13 @@ By the end of the exercise we should have completely decomposed into services
 - [Docker][20]
 - [VirtualEnv][19]
 
-#### Workshop code
 
+#### Workshop code
+- [Github Repo][21]
+- [Eve][13]
+- [Flask][12]
+- [Pymongo][22]
+- [Ipython][23]
 
 ### Monolithic Approach
 We will keep it simple and use a pre-canned application that contains the bare minimum to get started:
@@ -101,4 +106,7 @@ We will keep it simple and use a pre-canned application that contains the bare m
 [18]:https://en.wikipedia.org/wiki/System_administrator
 [19]:https://virtualenv.pypa.io/en/latest/
 [20]:https://www.docker.com/
+[21]:https://github.com/nleite/asyncmicroservices
+[22]:http://api.mongodb.org/python/current/
+[23]:http://ipython.org/
 //end

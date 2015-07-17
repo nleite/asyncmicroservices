@@ -1,6 +1,9 @@
 {%extends "base.html"%}
 
 {% block content %}
-  <h1>{{ message }}</h1>
-  <h2> with something in it</h2>
+  {%if list is defined %}
+    {% for item in list %}
+      {% include "recommendation.html"%}
+    {% endfor %}
+  {% endif %}
 {% endblock%}

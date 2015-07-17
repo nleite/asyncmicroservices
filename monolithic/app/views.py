@@ -1,14 +1,18 @@
 from flask import render_template, flash, redirect, g, url_for
 from app import app
 from app.forms import LoginForm, SearchForm
-from app.models import FTSModel
+from app.models import FTSModel, RecommsModel
 
 @app.route('/')
 @app.route('/index')
 def index():
     message = 'Hello World'
-    title = 'Our future soccer application'
-    return render_template('index.html', title=title, message=message)
+    title = "Let's search on Reddit"
+    list = g.recomms_list
+    return render_template('index.html', title=title,
+        message=message,
+        list=list
+        )
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -40,10 +44,18 @@ def search_results(query):
     )
 
 @app.route('/recommended/')
-@app.route('/recommended/<topic>')
-def recommended(topic='all'):
-    pass
+def recommended():
+
+    list = g.recomms_list
+
+    return render_template( 'list.html',
+        title="Recommendations Page",
+        list=list
+    )
+
 
 @app.before_request
 def before_request():
     g.search_form = SearchForm()
+    recomms = RecommsModel()
+    g.recomms_list = list(recomms.recommend())
