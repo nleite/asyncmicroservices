@@ -47,23 +47,58 @@ For this exercise we are not going to put the complex _Service Registry_ or _Loa
 
 
 ### What we are going to be doing
-We will start with a small monolithic application that does 3 things:
-- Lists the list of football players
-- List available the competitions and teams
-- Shows scores of results of those teams
+Going to start with a monolithic web application:
+- Based on [Flask][12] that will allows us to do certain functions
+  - search for reddit posts (and other datasources)
+  - show recommended pots based on topics
+  - tag those posts according with user preferences
+
+Then we will migrate the code base from a pure monolithic approach to REST
+- Based on [Eve][13]
+  - same type of functionality but replacing underlying calls to a Rest API
+  - slowly decomposing the system into services and starting to integrate async
+
+By the end of the exercise we should have completely decomposed into services
+- Each individual function will be running on a separate services
+  - containerized
+  - modularized
+  - scalable
+
+### Available Resources
+#### System Requirements
+- [Python 2.7][17]
+- [MongoDB 3.0][16]
+- [System Admin][18]
+#### Optional
+- [Docker][20]
+- [VirtualEnv][19]
+
+#### Workshop code
 
 
-#### References
-http://microservices.io/patterns/service-registry.html
-http://jasonwilder.com/blog/2014/07/15/docker-service-discovery/
-http://martinfowler.com/articles/microservices.html
-http://techblog.netflix.com/
-https://github.com/Netflix/eureka
-http://www.objectmentor.com/resources/articles/srp.pdf
-http://plainoldobjects.com/presentations/building-and-deploying-microservices-with-event-sourcing-cqrs-and-docker/qconsf-2014-building-and-deploying-microservices-with-event-sourcing-cqrs-and-docker/
-http://cppmicroservices.org/doc_latest/index.html
-http://highscalability.com/blog/2014/4/8/microservices-not-a-free-lunch.html
-http://techblog.netflix.com/2013/06/announcing-zuul-edge-service-in-cloud.html
-http://blog.miguelgrinberg.com/
+### Monolithic Approach
+We will keep it simple and use a pre-canned application that contains the bare minimum to get started:
 
+
+
+[1]:http://microservices.io/patterns/service-registry.html
+[2]:http://jasonwilder.com/blog/2014/07/15/docker-service-discovery/
+[3]:http://martinfowler.com/articles/microservices.html
+[4]:http://techblog.netflix.com/
+[5]:https://github.com/Netflix/eureka
+[6]:http://www.objectmentor.com/resources/articles/srp.pdf
+[7]:http://plainoldobjects.com/presentations/building-and-deploying-microservices-with-event-sourcing-cqrs-and-docker/qconsf-2014-building-and-deploying-microservices-with-event-sourcing-cqrs-and-docker/
+[8]:http://cppmicroservices.org/doc_latest/index.html
+[9]:http://highscalability.com/blog/2014/4/8/microservices-not-a-free-lunch.html
+[10]:http://techblog.netflix.com/2013/06/announcing-zuul-edge-service-in-cloud.html
+[11]:http://blog.miguelgrinberg.com/
+[12]:http://flask.pocoo.org/
+[13]:http://python-eve.org/
+[14]:https://docs.angularjs.org/tutorial
+[15]:https://sroze.github.io/ngInfiniteScroll/#
+[16]:https://www.mongodb.org/downloads
+[17]:https://www.python.org/downloads/release/python-2710/
+[18]:https://en.wikipedia.org/wiki/System_administrator
+[19]:https://virtualenv.pypa.io/en/latest/
+[20]:https://www.docker.com/
 //end

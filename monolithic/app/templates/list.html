@@ -1,0 +1,20 @@
+{%extends "base.html"%}
+{% block content%}
+
+  {%if list|length < 1 %}
+  <div class="alert">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>No results for {{query}}!</strong>
+  </div>
+  {%else%}
+  <!-- <div ng-app="Search" ng-controller="SearchController"> -->
+    <br>
+    <ul class="media-list">
+      {%for item in list %}
+        {%include "post_item.html"%}
+      {%endfor%}
+    </ul>
+  <!-- </div> -->
+  {%endif%}
+
+{% endblock %}
