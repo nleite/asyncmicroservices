@@ -1,0 +1,7 @@
+<div class="container">
+  <form class="navbar-search pull-left" action="{{url_for('search')}}"
+    method="post" name="search">
+    {{ g.search_form.hidden_tag() }}
+    {{ g.search_form.search(size=100, placeholder="Search") }}
+  </form>
+</div>
