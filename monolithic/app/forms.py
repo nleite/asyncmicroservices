@@ -9,3 +9,4 @@ class LoginForm(Form):
 
 class SearchForm(Form):
     search = StringField('search', validators=[DataRequired()])
+    

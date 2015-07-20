@@ -84,6 +84,7 @@ By the end of the exercise we should have completely decomposed into services
 ### Monolithic Approach
 We will keep it simple and use a pre-canned application that contains the bare minimum to get started:
 
+![Monolithc Architecture Diagram](static/Monolithic.png)
 
 
 [1]:http://microservices.io/patterns/service-registry.html
