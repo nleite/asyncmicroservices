@@ -84,8 +84,24 @@ By the end of the exercise we should have completely decomposed into services
 ### Monolithic Approach
 We will keep it simple and use a pre-canned application that contains the bare minimum to get started:
 
-![Monolithc Architecture Diagram](static/Monolithic.png)
+![Monolithic Architecture Diagram](static/Monolithic.png)
 
+This architecture offers lots of positive aspects:
+- Central point of concern
+- Simple code base and module organization
+- Straight forward development approach
+
+but also comes with some limitations:
+- Not that composable
+- One single point of failure  
+- All scales in the same way
+
+With this approach you only have 3 different general points for scaling: _storage layer_ | _Web App Layer_ | _Client Layer_
+But if what you need is only to scale the **list** or **search** components then you are coupled across the application and will need to scale the 3 if only one small component actually requires to grow
+
+### Rest API Approach
+In an effort of making our applications multi device and service oriented Rest API's architecture come to the rescue:
+![REST Architecture Diagram](static/REST.png)
 
 [1]:http://microservices.io/patterns/service-registry.html
 [2]:http://jasonwilder.com/blog/2014/07/15/docker-service-discovery/
