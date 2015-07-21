@@ -3,6 +3,10 @@
 from eve import Eve
 
 my_settings = {
+    "X_DOMAINS" : '*' ,
+    "MONGO_HOST": "localhost",
+    "MONGO_PORT": 27017,
+    "MONGO_DBNAME": "reddit",
     "DOMAIN":{"data": {}}
 }
 
