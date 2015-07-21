@@ -1,11 +1,10 @@
 FROM ubuntu:14.10
 
 RUN apt-get update -y
-RUN apt-get install python3 python3-pip -y
+RUN apt-get install python3 python3-pip tree -y
 
 WORKDIR /home
-ADD run.py /home/search
+ADD run.py /home/run.py
 
-EXPOSE 30001
+CMD /home/run.py
 
-CMD /home/search/run.py
