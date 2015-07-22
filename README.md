@@ -103,6 +103,11 @@ But if what you need is only to scale the **list** or **search** components then
 In an effort of making our applications multi device and service oriented Rest API's architecture come to the rescue:
 ![REST Architecture Diagram](static/REST.png)
 
+With this approach we get better equipped to manage our application with different leverage points that we can scale independently.
+- different services compose the full spec of features
+- a given service, once under stress, can be independently scaled from others (up and down!)
+
+
 [1]:http://microservices.io/patterns/service-registry.html
 [2]:http://jasonwilder.com/blog/2014/07/15/docker-service-discovery/
 [3]:http://martinfowler.com/articles/microservices.html
