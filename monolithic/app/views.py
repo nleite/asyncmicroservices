@@ -9,10 +9,16 @@ def index():
     message = 'Hello World'
     title = "Let's search on Reddit"
     list = g.recomms_list
+
+
+
     return render_template('index.html', title=title,
         message=message,
         list=list
         )
+
+
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -57,5 +63,6 @@ def recommended():
 @app.before_request
 def before_request():
     g.search_form = SearchForm()
-    recomms = RecommsModel()
-    g.recomms_list = list(recomms.recommend())
+    if not g.recomms_list:
+        recomms = RecommsModel()
+        g.recomms_list = list(recomms.recommend())
