@@ -60,3 +60,7 @@ target/
 ### IPythonNotebook ###
 # Temporary data
 .ipynb_checkpoints/
+
+### Virtualenv
+bin
+include
