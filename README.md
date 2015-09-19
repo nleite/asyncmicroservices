@@ -107,6 +107,17 @@ With this approach we get better equipped to manage our application with differe
 - different services compose the full spec of features
 - a given service, once under stress, can be independently scaled from others (up and down!)
 
+### Rest Async Services
+For the Async capabilities we will be using [Tornado Web Server][24].
+Async services are a great option for long operations or non-immediate resource access.
+
+In this exercise we will be diving into 2 different approaches:
+- waiting
+- redirecting
+
+**Redirecting** seems like something silly but it's quite a nice approach.
+Using [HATEOAS][25] at it's full glamour we can redirect requests that take longer to be able to continue to providing service to other, faster requests that can be attended.
+**Waiting** on the request but providing a [AsyncHTTPClient][26] to accomplish the request makes it more efficient to provide throughput on concurrent requests over a single service.
 
 [1]:http://microservices.io/patterns/service-registry.html
 [2]:http://jasonwilder.com/blog/2014/07/15/docker-service-discovery/
@@ -131,4 +142,7 @@ With this approach we get better equipped to manage our application with differe
 [21]:https://github.com/nleite/asyncmicroservices
 [22]:http://api.mongodb.org/python/current/
 [23]:http://ipython.org/
+[24]:http://www.tornadoweb.org/en/stable/
+[25]:https://en.wikipedia.org/wiki/HATEOAS
+[26]:http://tornado.readthedocs.org/en/latest/httpclient.html
 //end
