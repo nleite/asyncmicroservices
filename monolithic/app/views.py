@@ -63,6 +63,6 @@ def recommended():
 @app.before_request
 def before_request():
     g.search_form = SearchForm()
-    if not g.recomms_list:
+    if not 'recomms_list' in g:
         recomms = RecommsModel()
         g.recomms_list = list(recomms.recommend())

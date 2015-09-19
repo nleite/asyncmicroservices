@@ -117,7 +117,55 @@ In this exercise we will be diving into 2 different approaches:
 
 **Redirecting** seems like something silly but it's quite a nice approach.
 Using [HATEOAS][25] at it's full glamour we can redirect requests that take longer to be able to continue to providing service to other, faster requests that can be attended.
+
 **Waiting** on the request but providing a [AsyncHTTPClient][26] to accomplish the request makes it more efficient to provide throughput on concurrent requests over a single service.
+
+## Workshop Steps:
+
+
+### Step 1: Git clone
+```
+git clone git@github.com:nleite/asyncmicroservices.git
+```
+Make sure you can clone the repository so we can start to code away.
+
+To install git:
+- MacOSX : ```brew install git```
+- Windows : ```https://git-scm.com/download/win```
+- Linux : ```apt-get install git``` or ```yum install git```
+
+for other OS's ... check your distribution
+
+### Step 2: Virtualenv
+
+```
+virtualenv asyncmicroservices
+```
+
+If you don't have `virutalenv` installed (shame on you) go and get it!
+
+[```pip install virtualenv```](https://virtualenv.pypa.io/en/latest/installation.html)
+
+and don't forget to activate the environment ```source bin/activate``` [user guide](https://virtualenv.pypa.io/en/latest/userguide.html)
+
+### Step 4: Install dependencies & libraries
+
+```pip install -r requirements.txt```
+
+### Step 5: MongoDB
+
+Install [latest version of the server](https://www.mongodb.org/downloads). [Pymongo](https://api.mongodb.org/python/current/) is taken cared of with the previous step.
+
+Bootup the server and load data
+- Create data folder: ```mkdir data```
+- Start mongod: ```mongod --dbpath data --logpath data/log --fork```
+- Test the connection: ```mongo --eval "printjson(db.serverStatus())"```
+- Load initial dataset: ```mongoimport -d reddit -c posts < datasets/data.json```
+
+
+
+
+
 
 [1]:http://microservices.io/patterns/service-registry.html
 [2]:http://jasonwilder.com/blog/2014/07/15/docker-service-discovery/
