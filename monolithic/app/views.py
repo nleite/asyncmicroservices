@@ -10,13 +10,10 @@ def index():
     title = "Let's search on Reddit"
     list = g.recomms_list
 
-
-
     return render_template('index.html', title=title,
         message=message,
         list=list
         )
-
 
 
 
