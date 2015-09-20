@@ -1,13 +1,13 @@
-#Microservices using Async Libraries and MongoDB
+# Microservices using Async Libraries and MongoDB
 
-##Outline
-###Agenda
+## Outline
+### Agenda
 - Architecture definition
 - Dataset extrapolation
 - Services layout
 - Team Setup
 
-###Abiding Laws
+### Abiding Laws
 - One verb per single function micro-service
 - One developer produces one micro-service
 - Each micro-service has it's own build
@@ -17,7 +17,7 @@
 - We expose services using Flask
 - Everything else is your choice
 
-###Fundamentals
+### Fundamentals
 - Versioning
   - we can have several different versions of the same service running
   - we don't need to shutdown previous
@@ -69,17 +69,12 @@ By the end of the exercise we should have completely decomposed into services
 - [Python 2.7][17]
 - [MongoDB 3.0][16]
 - [System Admin][18]
-#### Optional
 - [Docker][20]
 - [VirtualEnv][19]
 
 
 #### Workshop code
 - [Github Repo][21]
-- [Eve][13]
-- [Flask][12]
-- [Pymongo][22]
-- [Ipython][23]
 
 ### Monolithic Approach
 We will keep it simple and use a pre-canned application that contains the bare minimum to get started:
@@ -152,6 +147,11 @@ and don't forget to activate the environment ```source bin/activate``` [user gui
 
 ```pip install -r requirements.txt```
 
+Simple and straight forward
+
+Install [Docker Machine](https://docs.docker.com/installation)
+
+
 ### Step 5: MongoDB
 
 Install [latest version of the server](https://www.mongodb.org/downloads). [Pymongo](https://api.mongodb.org/python/current/) is taken cared of with the previous step.
@@ -162,10 +162,49 @@ Bootup the server and load data
 - Test the connection: ```mongo --eval "printjson(db.serverStatus())"```
 - Load initial dataset: ```mongoimport -d reddit -c posts < datasets/data.json```
 
+### Step 6: Start Monolithic App
+
+For our exercise we have a pre-canned monolithic Flask application ready to run on our system:
+
+```
+cd monolithic
+./run.py
+```
+
+Once we have it started we then can open a browser and check the following address our [homepage](http://localhost:5000)
+> "Hooray! Hooray! The end of the world has been postponed!" - Hergé
+
+### Step 7: Review components
+
+There are a few different components on this system.
+Let's review the implemented functionality and start analyzing what can we start to decouple.
+
+- Recommendations
+- Search
+- Image Loading process
+
+### Step 7.1: Identify bottlenecks
+
+Check for potential issues with the existing approach in which performance bottleneck can be present at current execution.
+
+### Step 8: Define REST Layer
+
+Given the existing architecture we can use a different approach by using a REST architecture.
+This will allow us to move from an encapsulated monolithic architecture to a more distributed and modularized approach.
+
+### Step 9: Define Service Layer
+
+Let's decouple the different functionality into smaller services, already identified on the previous step into their own running services.
+We will be using Docker to launch and scale all of these
 
 
+### Step 10: Define Async Services
 
+Using the existing examples available on `services/async` let's build a few other to implement the following missing functionality:
 
+- Post likes
+- Post share
+- Hide Post
 
 [1]:http://microservices.io/patterns/service-registry.html
 [2]:http://jasonwilder.com/blog/2014/07/15/docker-service-discovery/
