@@ -44,7 +44,7 @@ class RecommsModel(object):
         cur = self.coll.aggregate( self.recommend_pipeline() )
 
         if isinstance(cur, dict):
-            return cur['results']
+            return cur['result']
 
 
         return cur

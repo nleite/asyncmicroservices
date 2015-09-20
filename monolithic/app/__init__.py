@@ -6,5 +6,5 @@ from pymongo import MongoClient
 app = Flask(__name__)
 app.config.from_object( 'config' )
 db = MongoClient(app.config["MONGODB"]["host"])[app.config["MONGODB"]["data"]["db"]]
-fts = 'data'
+fts = 'posts'
 from app import views
